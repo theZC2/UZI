@@ -1,0 +1,25 @@
+.win {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+.slide {
+    width: 500px;
+    height: 100px;
+}
+.button {
+    width: 100px;
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin: 5px;
+    &:hover {
+        border-color: #8598ff;
+        color: #8598ff;
+    }
+}

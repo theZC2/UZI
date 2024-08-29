@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { app, BrowserWindow, Menu } from 'electron'
-import { createRequire } from 'node:module'
+import { app, BrowserWindow } from 'electron'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 
-const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // The built directory structure
@@ -39,23 +37,6 @@ function createWindow() {
   win.webContents.on('did-finish-load', () => {
     win?.webContents.send('main-process-message', (new Date).toLocaleString())
   })
-  //Menu
-  const MenuTemplate: Electron.MenuItemConstructorOptions[] = [
-    {
-      label: 'Window',
-      submenu: [
-        { label: 'Refresh', role: 'reload' },
-        { type: 'separator' },
-        { label: 'Close', role: 'close' },
-        { label: 'Minimize', role: 'minimize' },
-        { label: 'Maximize', role: 'zoom' },
-        { type: 'separator' },
-        { label: 'Toggle Full Screen', role: 'togglefullscreen' },
-      ]
-    }
-  ]
-  const menu = Menu.buildFromTemplate(MenuTemplate)
-  Menu.setApplicationMenu(menu)
 
   if (VITE_DEV_SERVER_URL) {
     win.loadURL(VITE_DEV_SERVER_URL)
