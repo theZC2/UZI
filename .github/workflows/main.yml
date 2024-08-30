@@ -27,4 +27,5 @@ jobs:
           files: |
             dist/*.exe
             dist/*.zip
-        env: ${{ secrets.ACCESS_TOKEN }}
+        env: 
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
